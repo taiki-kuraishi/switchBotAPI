@@ -1,0 +1,16 @@
+version: '3'
+services:
+  app:
+    container_name: fastapi_switchbot
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./app:/app
+      - ./requirements.txt:/requirements.txt
+    # args:
+    #   - SWITCHBOT_TOKEN=$SWITCHBOT_TOKEN
+    #   - SWITCHBOT_SECRET=$SWITCHBOT_SECRET
+    env_file:
+      - .env
+    tty: true
